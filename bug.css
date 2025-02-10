@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+.specialClass {
+  color: red !important;
+}
+
+p {
+  color: green;
+}
+
+.specialClass p {
+  color: purple;
+}
+
+<div class="specialClass">
+  <p>This text should be purple.</p>
+</div>
+```
+
+The unexpected behavior is that despite the `!important` declaration on `.specialClass`, the paragraph (`<p>`) inside still inherits the `color: green` from its parent, and is not purple as expected. The problem lies in the fact that the `!important` declaration only overrides the specificity conflict on the direct element, which is the `div`.  The inheritance chain for the paragraph element's color property is not affected by `!important` on its parent.
