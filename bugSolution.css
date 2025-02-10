@@ -1,0 +1,27 @@
+To fix this, we should explicitly style the paragraph within the `.specialClass` with a higher specificity, or add `!important` directly to the more specific selector:
+
+```css
+div {
+  color: blue;
+}
+
+.specialClass {
+  color: red !important;
+}
+
+p {
+  color: green;
+}
+
+.specialClass p {
+  color: purple !important; /* Solution 1: Add !important to the child */
+}
+
+/* Alternative solution:
+.specialClass p {
+  color: purple; /*Solution 2: Increase Specificity (more effective)*/
+}
+*/
+```
+
+Now the paragraph text will correctly display as purple, demonstrating the correct handling of specificity and inheritance in CSS.
